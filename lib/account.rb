@@ -11,6 +11,7 @@ attr_reader :balance
   end
 
   def withdraw(amount)
+    raise("Insufficient funds available in account. You have #{@balance} remaining.") if @balance <= amount
     @balance -= amount
   end
 end

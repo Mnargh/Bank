@@ -16,4 +16,9 @@ describe Account do
     account.deposit(10)
     expect{account.withdraw(5)}.to change {account.balance}.from(10).to(5)
   end
+
+  it "Cannot withdraw more money than is available in the account" do
+    account.deposit(10)
+    expect{account.withdraw(11)}.to raise_error("Insufficient funds available in account. You have #{account.balance} remaining.")
+  end
 end
