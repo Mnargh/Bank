@@ -1,0 +1,31 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/tom/makersacademy/projects/week10/tech-tests/bank/spec/user_spec.rb": [
+        1,
+        null,
+        null,
+        null,
+        1,
+        2,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/tom/makersacademy/projects/week10/tech-tests/bank/lib/user.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1517225201
+  }
+}
