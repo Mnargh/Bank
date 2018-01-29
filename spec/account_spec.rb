@@ -2,10 +2,12 @@ require 'account'
 
 describe Account do
 
-  let(:empty_account){Account.new(0, transaction_class)}
-  let(:account){Account.new(10, transaction_class)}
-  let(:transaction_class){double(:transaction_class, new: deposit)}
+  let(:empty_account){Account.new(0, transaction_class_deposit)}
+  let(:account){Account.new(10, transaction_class_withdrawal)}
+  let(:transaction_class_deposit){double(:transaction_class, new: deposit)}
+  let(:transaction_class_withdrawal){double(:transaction_class, new: withdrawal)}
   let(:deposit){double(:deposit, type: "Deposit", amount: 10, date: "29/1/2018")}
+  let(:withdrawal){double(:withdrawal, type: "Withdrawal", amount: 5, date: "29/1/2018")}
 
   context "Managing Account Balance" do
     it "Initialises with an initial balance of 0" do
@@ -31,10 +33,15 @@ describe Account do
     end
 
     it "Making a deposit adds a deposit transaction to the account" do
-      expect(transaction_class).to receive(:new)
+      expect(transaction_class_deposit).to receive(:new)
       empty_account.deposit(10)
       expect(empty_account.transactions).to include(deposit)
+    end
 
+    it "Making a withdrawal adds a withdrawal transaction to the account" do
+      expect(transaction_class_withdrawal).to receive(:new)
+      account.withdraw(5)
+      expect(account.transactions).to include(withdrawal)
     end
   end
   context "Printing" do

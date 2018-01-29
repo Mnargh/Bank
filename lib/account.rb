@@ -1,7 +1,7 @@
 class Account
 
 attr_reader :transactions
-attr_accessor :balance, :deposit
+attr_accessor :balance, :deposit, :withdrawal
 
   def initialize(balance = 0, transaction_class = Transaction)
     @balance = balance
@@ -18,6 +18,8 @@ attr_accessor :balance, :deposit
   def withdraw(amount)
     raise("Insufficient funds available in account. You have #{@balance} remaining.") if @balance < amount
     @balance -= amount
+    @withdrawal = @transaction_class.new("Withdrawal", amount)
+    @transactions << @withdrawal
   end
 
   def print_balance
