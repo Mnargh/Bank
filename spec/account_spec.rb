@@ -6,8 +6,8 @@ describe Account do
   let(:account){Account.new(10, transaction_class_withdrawal)}
   let(:transaction_class_deposit){double(:transaction_class, new: deposit)}
   let(:transaction_class_withdrawal){double(:transaction_class, new: withdrawal)}
-  let(:deposit){double(:deposit, type: "Deposit", amount: 10, date: "29/1/2018")}
-  let(:withdrawal){double(:withdrawal, type: "Withdrawal", amount: 5, date: "29/1/2018")}
+  let(:deposit){double(:deposit, type: "Deposit", amount: 10, date: "29/01/2018")}
+  let(:withdrawal){double(:withdrawal, type: "Withdrawal", amount: 5, date: "29/01/2018")}
 
   context "Managing Account Balance" do
     it "Initialises with an initial balance of 0" do
@@ -45,8 +45,19 @@ describe Account do
     end
   end
   context "Printing" do
+    let(:account){Account.new(30, transaction_class_withdrawal)}
+
     it "Can print out the current account balance" do
-      expect{account.print_balance}.to output("Your balance is #{account.balance}").to_stdout
+
+      expect{empty_account.print_balance}.to output("Your balance is #{empty_account.balance}").to_stdout
+    end
+
+    it "Can print out a single transaction in the correct format" do
+      account.withdraw(5)
+      expect{account.print_statement}.to output(<<~MESSAGE).to_stdout
+      date || credit || debit || balance
+      29/01/2018 || || 5.00 || 25.00
+      MESSAGE
     end
   end
 

@@ -25,4 +25,13 @@ attr_accessor :balance, :deposit, :withdrawal
   def print_balance
     print("Your balance is #{@balance}")
   end
+
+  def print_statement
+    puts "date || credit || debit || balance"
+    @transactions.reverse.each do |transaction|
+      puts "#{transaction.date} || || #{'%.02f' % transaction.amount} || #{'%.02f' % @balance}"
+    end
+  end
+
+
 end
