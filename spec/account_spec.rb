@@ -6,8 +6,8 @@ describe Account do
   let(:account){Account.new(10, transaction_class_withdrawal)}
   let(:transaction_class_deposit){double(:transaction_class, new: deposit)}
   let(:transaction_class_withdrawal){double(:transaction_class, new: withdrawal)}
-  let(:deposit){double(:deposit, type: "Deposit", amount: 10, date: "29/01/2018")}
-  let(:withdrawal){double(:withdrawal, type: "Withdrawal", amount: 5, date: "29/01/2018")}
+  let(:deposit){double(:deposit, type: "Deposit", amount: 10, date: "29/01/2018", balance_after_transaction: 35)}
+  let(:withdrawal){double(:withdrawal, type: "Withdrawal", amount: 5, date: "29/01/2018", balance_after_transaction: 25)}
 
   context "Managing Account Balance" do
     it "Initialises with an initial balance of 0" do
@@ -44,6 +44,7 @@ describe Account do
       expect(account.transactions).to include(withdrawal)
     end
   end
+
   context "Printing" do
     let(:account_for_withdrawal){Account.new(30, transaction_class_withdrawal)}
     let(:account_for_deposit){Account.new(30, transaction_class_deposit)}

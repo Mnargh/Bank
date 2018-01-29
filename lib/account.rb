@@ -11,6 +11,7 @@ attr_accessor :balance, :deposit, :withdrawal
 
   def deposit(amount)
     @balance += amount
+    # increase_balance(amount)
     @deposit = @transaction_class.new("Deposit", amount, Time.new.strftime("%d/%m/%Y") ,@balance)
     @transactions << @deposit
   end
@@ -33,6 +34,16 @@ attr_accessor :balance, :deposit, :withdrawal
       puts "#{transaction.date} || #{'%.02f' % transaction.amount} || || #{'%.02f' % transaction.balance_after_transaction}" if transaction.type == "Deposit"
     end
   end
+
+  # private
+  #
+  # def increase_balance(amount)
+  #   @balance += amount
+  # end
+  #
+  # def decrease_balance(amount)
+  #   @balance -= amount
+  # end
 
 
 end
