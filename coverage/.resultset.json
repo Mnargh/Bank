@@ -6,8 +6,10 @@
         null,
         1,
         null,
+        5,
         4,
-        4,
+        8,
+        8,
         null,
         1,
         1,
@@ -27,6 +29,12 @@
         null,
         null,
         null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
         1,
         1,
         1,
@@ -45,14 +53,18 @@
         1,
         null,
         1,
+        1,
         null,
         1,
-        6,
-        6,
+        7,
+        7,
+        7,
         null,
         null,
         1,
-        1,
+        2,
+        2,
+        2,
         null,
         null,
         1,
@@ -74,6 +86,8 @@
         null
       ],
       "/Users/tom/makersacademy/projects/week10/tech-tests/bank/lib/transaction.rb": [
+        1,
+        null,
         1,
         null,
         1,
@@ -110,6 +124,6 @@
         null
       ]
     },
-    "timestamp": 1517229701
+    "timestamp": 1517238156
   }
 }

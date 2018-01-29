@@ -2,8 +2,10 @@ require 'account'
 
 describe Account do
 
-  let(:empty_account){Account.new}
-  let(:account){Account.new(10)}
+  let(:empty_account){Account.new(0, transaction_class)}
+  let(:account){Account.new(10, transaction_class)}
+  let(:transaction_class){double(:transaction_class, new: deposit)}
+  let(:deposit){double(:deposit, type: "Deposit", amount: 10, date: "29/1/2018")}
 
   context "Managing Account Balance" do
     it "Initialises with an initial balance of 0" do
@@ -27,7 +29,13 @@ describe Account do
     it "Initialises with no previous transactions" do
       expect(empty_account.transactions).to be_empty
     end
-    
+
+    it "Making a deposit adds a deposit transaction to the account" do
+      expect(transaction_class).to receive(:new)
+      empty_account.deposit(10)
+      expect(empty_account.transactions).to include(deposit)
+
+    end
   end
   context "Printing" do
     it "Can print out the current account balance" do
