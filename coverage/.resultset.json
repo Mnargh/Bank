@@ -6,15 +6,23 @@
         null,
         1,
         null,
-        0,
+        2,
         null,
-        0,
-        0,
+        1,
+        1,
         null,
         null
       ],
       "/Users/tom/makersacademy/projects/week10/tech-tests/bank/lib/account.rb": [
-
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null
       ],
       "/Users/tom/makersacademy/projects/week10/tech-tests/bank/spec/user_spec.rb": [
         1,
@@ -22,10 +30,10 @@
         null,
         null,
         1,
-        1,
+        2,
         null,
         1,
-        0,
+        1,
         null,
         null
       ],
@@ -35,12 +43,12 @@
         1,
         null,
         1,
-        0,
+        1,
         null,
         null,
         null
       ]
     },
-    "timestamp": 1517225545
+    "timestamp": 1517225694
   }
 }
