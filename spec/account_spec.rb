@@ -22,5 +22,7 @@ describe Account do
     expect{account.withdraw(11)}.to raise_error("Insufficient funds available in account. You have #{account.balance} remaining.")
   end
 
-  
+  it "Can print out the current account balance" do
+    expect{account.print_balance}.to output("Your balance is #{account.balance}").to_stdout
+  end
 end
