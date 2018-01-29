@@ -11,4 +11,9 @@ describe Account do
   it "Can deposit money in the account" do
     expect{account.deposit(10)}.to change {account.balance}.from(0).to(10)
   end
+
+  it "Can withdraw money from the account" do
+    account.deposit(10)
+    expect{account.withdraw(5)}.to change {account.balance}.from(10).to(5)
+  end
 end
