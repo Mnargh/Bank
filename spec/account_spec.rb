@@ -45,18 +45,25 @@ describe Account do
     end
   end
   context "Printing" do
-    let(:account){Account.new(30, transaction_class_withdrawal)}
+    let(:account_for_withdrawal){Account.new(30, transaction_class_withdrawal)}
+    let(:account_for_deposit){Account.new(30, transaction_class_deposit)}
 
     it "Can print out the current account balance" do
-
-      expect{empty_account.print_balance}.to output("Your balance is #{empty_account.balance}").to_stdout
+      expect{empty_account.print_balance}.to output("Your balance is 0").to_stdout
     end
 
-    it "Can print out a single transaction in the correct format" do
-      account.withdraw(5)
-      expect{account.print_statement}.to output(<<~MESSAGE).to_stdout
+    it "Can print out a single withdrawal in the correct format" do
+      account_for_withdrawal.withdraw(5)
+      expect{account_for_withdrawal.print_statement}.to output(<<~MESSAGE).to_stdout
       date || credit || debit || balance
       29/01/2018 || || 5.00 || 25.00
+      MESSAGE
+    end
+    it "Can print out a single deposit in the correct format" do
+      account_for_deposit.deposit(5)
+      expect{account_for_deposit.print_statement}.to output(<<~MESSAGE).to_stdout
+      date || credit || debit || balance
+      29/01/2018 || 10.00 || || 35.00
       MESSAGE
     end
   end

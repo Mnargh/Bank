@@ -29,7 +29,8 @@ attr_accessor :balance, :deposit, :withdrawal
   def print_statement
     puts "date || credit || debit || balance"
     @transactions.reverse.each do |transaction|
-      puts "#{transaction.date} || || #{'%.02f' % transaction.amount} || #{'%.02f' % @balance}"
+      puts "#{transaction.date} || || #{'%.02f' % transaction.amount} || #{'%.02f' % @balance}" if transaction.type == "Withdrawal"
+      puts "#{transaction.date} || #{'%.02f' % transaction.amount} || || #{'%.02f' % @balance}" if transaction.type == "Deposit"
     end
   end
 
